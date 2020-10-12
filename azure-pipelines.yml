@@ -5,6 +5,7 @@
 
 trigger:
 - master
+- release/*
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -19,3 +20,10 @@ steps:
     npm install
     npm run build --prod
   displayName: 'npm install and build'
+
+- task: PublishBuildArtifacts@1
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/release/)
+  inputs:
+    PathtoPublish: '$(Build.BinariesDirectory)/release-artifact'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
