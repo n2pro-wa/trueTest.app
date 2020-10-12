@@ -26,5 +26,5 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.BinariesDirectory)/dist'
-    ArtifactName: 'drop'
+    ArtifactName: 'artifacts'
     publishLocation: 'Container'
