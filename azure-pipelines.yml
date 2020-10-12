@@ -19,7 +19,7 @@ steps:
 
 - script: |
     npm install
-    npm run build --prod
+    npm run build --prod --output-path $(Build.BinariesDirectory)/release-artifact
   displayName: 'npm install and build'
 
 - task: PublishBuildArtifacts@1
