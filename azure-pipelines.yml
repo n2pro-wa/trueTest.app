@@ -31,8 +31,6 @@ steps:
 - script: |
     npm install
   displayName: 'install angular/cli'
-  condition: eq(variables['CachRestored'],False)
-
 
 - script: |
     ng build --prod --output-path $(Build.BinariesDirectory)/dist
