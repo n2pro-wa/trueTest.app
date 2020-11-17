@@ -22,11 +22,10 @@ steps:
     npm install -g @angular/cli
   displayName: 'install angular/cli'
 
-- task: Npm@1
-  displayName: 'npm install'
-  condition: eq(variables['CacheRestored'],False)
-  inputs:
-    command: 'install'
+- script: |
+    npm install
+  displayName: 'install angular/cli'
+  condition: eq(variables['CachRestored'],False)
 
 - task: Cache@2
   inputs:
