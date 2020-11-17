@@ -30,7 +30,8 @@ steps:
 
 - script: |
     npm install
-  displayName: 'install angular/cli'
+  displayName: 'npm install'
+  condition: eq(variables['CacheRestored'],False)
 
 - script: |
     ng build --prod --output-path $(Build.BinariesDirectory)/dist
