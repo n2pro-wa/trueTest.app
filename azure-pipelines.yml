@@ -22,16 +22,17 @@ steps:
     npm install -g @angular/cli
   displayName: 'install angular/cli'
 
-- script: |
-    npm install
-  displayName: 'install angular/cli'
-  condition: eq(variables['CachRestored'],False)
-
 - task: Cache@2
   inputs:
     key: '**/package-lock.json, !**/node_modules/**/package-lock.json, !**/.*/**/package-lock.json'
     path: '$(System.DefaultWorkingDirectory)/node_modules'
     restoreKeys: 'CachRestored'
+
+- script: |
+    npm install
+  displayName: 'install angular/cli'
+  condition: eq(variables['CachRestored'],False)
+
 
 - script: |
     ng build --prod --output-path $(Build.BinariesDirectory)/dist
