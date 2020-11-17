@@ -26,7 +26,7 @@ steps:
   inputs:
     key: '**/package-lock.json, !**/node_modules/**/package-lock.json, !**/.*/**/package-lock.json'
     path: '$(System.DefaultWorkingDirectory)/node_modules'
-    restoreKeys: 'CachRestored'
+    cacheHitVar: 'CachRestored'
 
 - script: |
     npm install
