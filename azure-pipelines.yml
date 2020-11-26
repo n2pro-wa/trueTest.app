@@ -4,9 +4,9 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 parameters:
-- name: enviroment
+- name: env
   type: string
-  displayName: Env
+  displayName: Enviroment
   values:
     - dev
     - qa
